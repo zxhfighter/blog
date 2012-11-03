@@ -1,0 +1,327 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>前端花园</title>
+    <style type="text/css">
+        .fl {
+            float: left;
+        }
+
+        .fr {
+            float: right;
+        }
+
+        .oh {
+            overflow: hidden;
+        }
+
+        html {
+            font-size: 12px;
+            font-family: Tahoma;
+            background: transparent url(img/bg.gif) repeat;
+        }
+
+        body {
+            min-width: 1000px;
+        }
+
+        h2 {
+            font-family: 微软雅黑,Tahoma;
+            font-size: 16px;
+            font-weight: bold;  
+            margin: 5px 0px;
+        }
+
+        .wrapper {
+            width: 960px;
+            margin: 0 auto;
+        }
+
+        .header {
+            position: relative;
+        }
+
+        .header-title {
+            width: 150px;
+            height: 150px;
+        }
+
+        .header-title div {
+            position: absolute;
+        }
+
+        .title-qian {
+            left: 72px;
+            top: 10px;
+            width: 54px;
+            height: 61px;
+            background: url(img/sprites.png) -10px -62px no-repeat;
+        }
+
+        .title-duan {
+            left: 70px;
+            top: 80px;
+            width: 52px;
+            height: 77px;
+            background: url(img/sprites.png) -76px -62px no-repeat;
+        }
+
+        .title-hua {
+            left: 5px;
+            top: 10px;
+            width: 59px;
+            height: 65px;
+            background: url(img/sprites.png) -137px -62px no-repeat;
+        }
+
+        .title-yuan {
+            left: 10px;
+            top: 80px;
+            width: 45px;
+            height: 72px;
+            background: url(img/sprites.png) -203px -62px no-repeat;
+        }
+
+        .friend-link { 
+            margin-left: 40px;
+            margin-top: 10px;
+            width: 760px;
+            height: 160px;
+        }
+
+        .friend-link div {
+            color: #666;
+            border: 1px solid gray;
+            margin: 1px;
+            width: 48px;
+            height: 48px;
+            border-radius: 48px;
+            line-height: 48px;
+            text-align: center;
+            font-size: 20px;
+            font-family: 华文新魏;
+            float: left;
+        }
+
+        .content-block {
+            position: relative;
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            box-shadow: 2px 2px 10px #666;
+        }
+
+        .content-block .content-more {
+            position: absolute;
+            right: 5px;
+            bottom: 10px;
+        }
+
+        .split-line {
+            border-top: 1px dashed #003399;
+            margin-top: 20px;
+            width: 915px;
+        }
+
+        .content-header {
+            height: 30px;
+            line-height: 30px;
+        }
+
+        .content-header .img-latest-posts {
+            float: left;
+            margin-right: 10px;
+            display: block;
+            width: 24px;
+            height: 24px;
+            background: url(img/sprites.png) -271px -93px no-repeat;
+            font-size:13px;
+        }
+
+        .content-header .img-latest-comments {
+            float: left;
+            margin-right: 10px;
+            display: block;
+            width: 24px;
+            height: 24px;
+            background: url(img/sprites.png) -298px -66px no-repeat;
+        }
+
+        .content-header .img-top-posts {
+            float: left;
+            margin-right: 10px;
+            display: block;
+            width: 24px;
+            height: 24px;
+            background: url(img/sprites.png) -298px -90px no-repeat;
+            font-size: 13px;
+        }
+
+        .content-list ul {
+            margin: 0;
+            padding: 0px;
+            list-style: none;
+            margin-left: 20px;
+        }
+
+        .content-list ul li {
+            text-decoration: none;
+            height: 38px;
+            line-height: 38px;
+        }
+
+        .footer {
+            text-align: center;
+            height: 30px;
+            line-height: 30px;
+        }
+
+        .birds-path, .birds-path-on {
+            position: absolute;
+            left: 0px;
+            top: 10px;
+            float: left;
+            height: 61px;
+            margin: 100px 0 0;
+            overflow: hidden;
+            width: 100%;
+        }
+        .birds-position {
+            margin: 0 0 0 -250px;
+        }
+        .birds, .birds-on {
+            background: url(img/sprites.png) no-repeat scroll 0 0 transparent;
+            float: left;
+            height: 61px;
+            width: 167px;
+        }
+    </style>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        
+        // make birds fly
+        $(function() {
+            var $path = $(".birds-path"),
+                $birds = $(".birds");
+            $path.addClass("on");
+            $birds.addClass("on");
+
+            var pause = 0;
+            function birds() {
+                var element = ".birds.on",
+                    interval = 27000,
+                    left = 0,
+                    away = 150;
+
+                if( pause === 0 ) {
+                    pause = 1;
+                    $(element).css("margin-left", left + "px").animate({marginLeft: away + "%"}, interval, 'linear', function() {
+                        $(element).css("margin-left", left + "px");
+                        pause = 0;
+                        birds();
+                    });
+                }
+            }
+
+            birds();
+
+            //BIRDS SPRITE ANIMATION
+            var recursion = function(toggle) 
+            {
+                setTimeout(function() 
+                {
+                    switch(toggle) 
+                    {
+                        case 1:toggle=0;$(".birds.on").css({backgroundPosition: '-167px 0px'});break;
+                        case 2:toggle=1;$(".birds.on").css({backgroundPosition: '-334px 0px'});break;
+                        case 3:toggle=2;$(".birds.on").css({backgroundPosition: '-501px 0px'});break;
+                        case 4:toggle=3;$(".birds.on").css({backgroundPosition: '-668px 0px'});break;
+                        case 5:toggle=4;$(".birds.on").css({backgroundPosition: '-835px 0px'});break;
+                        case 6:toggle=5;$(".birds.on").css({backgroundPosition: '-1002px 0px'});break;
+                        case 7:toggle=6;$(".birds.on").css({backgroundPosition: '-1169px 0px'});break;
+                        default:toggle=7;$(".birds.on").css({backgroundPosition: '0px 0px'});break; 
+                    }
+                    recursion(toggle);
+                },80);
+            }
+            recursion(0);   
+        });
+    </script>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="header oh">
+            <!-- title -->
+            <div class="header-title fl">
+                <div class="title-qian"></div>
+                <div class="title-duan"></div>
+                <div class="title-hua"></div>
+                <div class="title-yuan"></div>
+            </div>
+
+            <!-- friend link -->
+            <div class="friend-link fl oh">
+                <div>千</div>
+                <div>山</div>
+                <div>鸟</div>
+                <div>飞</div>
+                <div>绝</div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div>万</div>
+                <div>径</div>
+                <div>人</div>
+                <div>踪</div>
+                <div>灭</div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+        <div class="split-line"></div>
+        
+        {{ content }}
+        
+        <div class="split-line"></div>
+        <div class="footer">
+            前端花园 &copy; 2012
+        </div>
+    </div>
+
+    <div class="birds-path">
+        <div class="birds-position">
+            <div class="birds"></div>
+        </div>
+    </div>
+</body>
+</html>

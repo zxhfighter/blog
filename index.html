@@ -1,0 +1,60 @@
+
+---
+layout: default
+---
+
+<div class="content">
+    <div class="main-content oh">
+        <div class="content-block fl">
+            <div class="content-header">
+                <h2><span class="img-latest-posts"></span>最新文章</h2>
+            </div>
+            <div class="content-list">
+                <ul>
+                    {% for post in site.posts %}
+                        <li>{{ post.date| date_to_string }} <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="content-more">
+                <a href="/">更多>></a>
+            </div>
+        </div>
+        
+        <div class="content-block fl">
+            <div class="content-header">
+                <h2><span class="img-latest-comments"></span>最新评论</h2>
+            </div>
+            <div class="content-list">
+                <ul>
+                    <li><a href="/">夜读CoffeeScript</a></li>
+                    <li><a href="/">JavaScript设计模式aaaaaasdfda</a></li>
+                    <li><a href="/">深入浅出GOF</a></li>
+                    <li><a href="/">庖丁解牛</a></li>
+                    <li><a href="/">时代变迁</a></li>
+                </ul>
+            </div>
+             <div class="content-more">
+                <a href="/">更多>></a>
+            </div>
+        </div>
+
+        <div class="content-block fl">
+            <div class="content-header">
+                <h2><span class="img-top-posts"></span>阅读排行榜</h2>
+            </div>
+            <div class="content-list">
+                <ul>
+                    <li><a href="/">夜读CoffeeScript</a></li>
+                    <li><a href="/">JavaScript设计模式aaaaaasdfdsaaaaaaa</a></li>
+                    <li><a href="/">深入浅出GOF</a></li>
+                    <li><a href="/">庖丁解牛</a></li>
+                    <li><a href="/">时代变迁</a></li>
+                </ul>
+            </div>
+            <div class="content-more">
+                <a href="/">更多>></a>
+            </div>
+        </div>
+    </div>
+</div>
