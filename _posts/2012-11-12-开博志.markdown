@@ -1,7 +1,7 @@
 ---
 layout: post
 categories: other
-title: 博客志
+title: "博客志"
 ---
 
 本博客经过一个星期的折腾，终于搞定了，撒花庆祝下。
