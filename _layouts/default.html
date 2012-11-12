@@ -3,7 +3,7 @@
 <head>
     <!-- html:5 -->
     <meta charset="utf-8" />
-    <title>{{ page.title }}</title>
+    <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.meta.title }}</title>
     <meta name="author" content="{{ site.meta.author }}" />
 
     <!-- link:atom -->
