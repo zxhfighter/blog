@@ -1,0 +1,66 @@
+---
+layout: default
+title: 目录页
+---
+
+<div class="article">
+    {% for cat in site.categories limit:7 %}
+    <div id = "{{ cat[0] }}" class="block">
+         {% case cat[0] %}
+            {% when 'javascript' %}
+                {% assign catName = '编程' %}
+            {% when 'translate' %}
+                {% assign catName = '翻译' %}
+            {% when 'photo' %}
+                {% assign catName = '摄影' %}
+            {% when 'book' %}
+                {% assign catName = '读书' %}
+            {% when 'essay' %}
+                {% assign catName = '随想' %}
+            {% when 'business' %}
+                {% assign catName = '业界' %}
+            {% when 'other' %}
+                {% assign catName = '其他' %}
+            {% else %}
+                {% assign catName = cat[0] %}
+        {% endcase %}
+        <div class="bread">
+            <a style="font-size: 15px; font-weight: bold;" href="{{ site.baseurl }}/archive/category.html#all">全部分类</a>>>
+            <a style="font-size: 15px; font-weight: bold;" href="{{ site.baseurl }}/archive/category.html#{{ cat[0] }}">{{ catName }}</a>
+        </div>
+        
+        <ul>
+        {% for post in cat[1] %}
+            <li class="post-item">{{ post.date | date: "%Y-%m-%d" }} >> <a href="{{ site.baseurl }}{{ post.url }}"> {{ post.title }} </a></li>
+        {% endfor %}
+        </ul>
+    </div>
+    {% endfor %}
+
+    <div>
+        <a href="{{ site.baseurl }}/" class="returnToMain">返回首页</a>
+    </div>
+</div>
+
+<script type="text/javascript">
+    
+
+    window.onhashchange = function() {
+        var hash = window.location.hash;
+
+        if( hash.indexOf("#") != -1) {
+            hash = hash.slice(1)
+        }
+
+        if( hash == "all" ) {
+            $("div.block").show();
+        }
+        else {
+            $("div.block").hide();
+            $("div#" + hash).show();
+        }
+    };
+
+    window.onhashchange();
+    
+</script>

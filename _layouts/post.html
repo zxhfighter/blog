@@ -1,0 +1,62 @@
+---
+layout: default
+comment: true
+---
+<div class="bread">
+    <a href="{{ site.baseurl }}/archive/category.html#all">全部分类</a>>>
+    {% case page.categories[0] %}
+        {% when 'javascript' %}
+            {% assign catName = '编程' %}
+        {% when 'translate' %}
+            {% assign catName = '翻译' %}
+        {% when 'photo' %}
+            {% assign catName = '摄影' %}
+        {% when 'book' %}
+            {% assign catName = '读书' %}
+        {% when 'essay' %}
+            {% assign catName = '随想' %}
+        {% when 'business' %}
+            {% assign catName = '业界' %}
+        {% when 'other' %}
+            {% assign catName = '其他' %}
+        {% else %}
+            {% assign catName = page.categories[0] %}
+    {% endcase %}
+    <a href="{{ site.baseurl }}/archive/category.html#{{ page.categories[0] }}">{{ catName }}</a>
+</div>
+<div class="article">
+    <div class="article-title">
+        <h2>{{ page.title }}</h2>
+    </div>
+    <div class="article-content">
+        {{ content }}
+    </div>
+
+    <div class="article-foot">
+        {% if page.previous.url %}
+        <a href="{{ site.baseurl }}{{ page.previous.url }}" title="前一篇: {{page.previous.title}}">前一篇：{{page.previous.title}}</a>
+        {% endif %}
+        {% if page.next.url %}
+        <a href="{{ site.baseurl }}{{page.next.url}}" title="下一篇：{{page.next.title}}">后一篇：{{page.next.title}}</a>
+        {% endif %}
+
+        <a href="{{ site.baseurl }}/" class="returnToMain">返回首页</a>
+    </div>
+
+    <div class="article-comment">
+        <!-- Duoshuo Comment BEGIN -->
+            <div class="ds-thread"></div>
+            <script type="text/javascript">
+            var duoshuoQuery = {short_name:"zxhfighter"};
+            (function() {
+                var ds = document.createElement('script');
+                ds.type = 'text/javascript';ds.async = true;
+                ds.src = 'http://static.duoshuo.com/embed.js';
+                ds.charset = 'UTF-8';
+                (document.getElementsByTagName('head')[0] 
+                || document.getElementsByTagName('body')[0]).appendChild(ds);
+            })();
+            </script>
+        <!-- Duoshuo Comment END -->
+    </div>
+</div>

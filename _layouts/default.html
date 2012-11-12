@@ -1,334 +1,70 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <meta charset="utf-8">
-    <title>前端花园</title>
-    <style type="text/css">
-        .fl {
-            float: left;
-        }
+    <!-- html:5 -->
+    <meta charset="utf-8" />
+    <title>{{ site.meta.title }}</title>
+    <meta name="author" content="{{ site.meta.author }}" />
 
-        .fr {
-            float: right;
-        }
+    <!-- link:atom -->
+    <link rel="alternate" href="atom.xml" title="Atom" type="application/atom+xml" />
 
-        .oh {
-            overflow: hidden;
-        }
+    <!-- link:rss -->
+    <link rel="alternate" href="rss.xml" title="RSS" type="application/rss+xml" />
 
-        html {
-            font-size: 12px;
-            font-family: Tahoma;
-            background: transparent url(https://raw.github.com/zxhfighter/blog/master/img/bg.gif) repeat;
-        }
+    <!-- link:favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="{{ site.baseurl }}/favicon.ico">
 
-        body {
-            min-width: 1000px;
-        }
+    <!-- [ if lt IE 9]>
+    <script type="text/javascript" src="{{ site.baseurl }}/js/html5.js"></script>
+    <![endif] -->
 
-        h2 {
-            font-family: 微软雅黑,Tahoma;
-            font-size: 16px;
-            font-weight: bold;  
-            margin: 5px 0px;
-        }
+    <!-- link:css -->
+    <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/assets/css/all.css" media="all">
 
-        .wrapper {
-            width: 960px;
-            margin: 0 auto;
-        }
-
-        .header {
-            position: relative;
-        }
-
-        .header-title {
-            width: 150px;
-            height: 150px;
-        }
-
-        .header-title div {
-            position: absolute;
-        }
-
-        .title-qian {
-            left: 72px;
-            top: 10px;
-            width: 54px;
-            height: 61px;
-            background: url(https://raw.github.com/zxhfighter/blog/master/img/sprites.png) -10px -62px no-repeat;
-        }
-
-        .title-duan {
-            left: 70px;
-            top: 80px;
-            width: 52px;
-            height: 77px;
-            background: url(https://raw.github.com/zxhfighter/blog/master/img/sprites.png) -76px -62px no-repeat;
-        }
-
-        .title-hua {
-            left: 5px;
-            top: 10px;
-            width: 59px;
-            height: 65px;
-            background: url(https://raw.github.com/zxhfighter/blog/master/img/sprites.png) -137px -62px no-repeat;
-        }
-
-        .title-yuan {
-            left: 10px;
-            top: 80px;
-            width: 45px;
-            height: 72px;
-            background: url(https://raw.github.com/zxhfighter/blog/master/img/sprites.png) -203px -62px no-repeat;
-        }
-
-        .friend-link { 
-            margin-left: 40px;
-            margin-top: 10px;
-            width: 760px;
-            height: 160px;
-        }
-
-        .friend-link div {
-            color: #666;
-            border: 1px solid gray;
-            margin: 1px;
-            width: 48px;
-            height: 48px;
-            border-radius: 48px;
-            line-height: 48px;
-            text-align: center;
-            font-size: 20px;
-            font-family: 华文新魏;
-            float: left;
-        }
-
-        .content-block {
-            width: 260px;
-            position: relative;
-            margin: 20px 10px;
-            padding: 20px 10px;
-            border: 1px solid #ccc;
-            box-shadow: 2px 2px 10px #666;
-        }
-
-        .content-block .content-more {
-            position: absolute;
-            right: 5px;
-            bottom: 10px;
-        }
-
-        .split-line {
-            border-top: 1px dashed #003399;
-            margin-top: 20px;
-            width: 915px;
-        }
-
-        .content-header {
-            height: 30px;
-            line-height: 30px;
-        }
-
-        .content-header .img-latest-posts {
-            float: left;
-            margin-right: 10px;
-            display: block;
-            width: 24px;
-            height: 24px;
-            background: url(https://raw.github.com/zxhfighter/blog/master/img/sprites.png) -271px -93px no-repeat;
-            font-size:13px;
-        }
-
-        .content-header .img-latest-comments {
-            float: left;
-            margin-right: 10px;
-            display: block;
-            width: 24px;
-            height: 24px;
-            background: url(https://raw.github.com/zxhfighter/blog/master/img/sprites.png) -298px -66px no-repeat;
-        }
-
-        .content-header .img-top-posts {
-            float: left;
-            margin-right: 10px;
-            display: block;
-            width: 24px;
-            height: 24px;
-            background: url(https://raw.github.com/zxhfighter/blog/master/img/sprites.png) -298px -90px no-repeat;
-            font-size: 13px;
-        }
-
-        .content-list ul {
-            margin: 0;
-            padding: 0px;
-            list-style: none;
-            margin-left: 20px;
-        }
-
-        .content-list ul li {
-            text-decoration: none;
-            height: 38px;
-            line-height: 38px;
-            overflow: hidden;
-        }
-
-        .content-list ul li span {
-            float: right;
-        }
-
-        .footer {
-            text-align: center;
-            height: 30px;
-            line-height: 30px;
-        }
-
-        .birds-path, .birds-path-on {
-            position: absolute;
-            left: 0px;
-            top: 10px;
-            float: left;
-            height: 61px;
-            margin: 100px 0 0;
-            overflow: hidden;
-            width: 100%;
-        }
-        .birds-position {
-            margin: 0 0 0 -250px;
-        }
-        .birds, .birds-on {
-            background: url(https://raw.github.com/zxhfighter/blog/master/img/sprites.png) no-repeat scroll 0 0 transparent;
-            float: left;
-            height: 61px;
-            width: 167px;
-        }
-    </style>
-
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
-
-    <script type="text/javascript">
-        
-        // make birds fly
-        $(function() {
-            var $path = $(".birds-path"),
-                $birds = $(".birds");
-            $path.addClass("on");
-            $birds.addClass("on");
-
-            var pause = 0;
-            function birds() {
-                var element = ".birds.on",
-                    interval = 27000,
-                    left = 0,
-                    away = 150;
-
-                if( pause === 0 ) {
-                    pause = 1;
-                    $(element).css("margin-left", left + "px").animate({marginLeft: away + "%"}, interval, 'linear', function() {
-                        $(element).css("margin-left", left + "px");
-                        pause = 0;
-                        birds();
-                    });
-                }
-            }
-
-            birds();
-
-            //BIRDS SPRITE ANIMATION
-            var recursion = function(toggle) 
-            {
-                setTimeout(function() 
-                {
-                    switch(toggle) 
-                    {
-                        case 1:toggle=0;$(".birds.on").css({backgroundPosition: '-167px 0px'});break;
-                        case 2:toggle=1;$(".birds.on").css({backgroundPosition: '-334px 0px'});break;
-                        case 3:toggle=2;$(".birds.on").css({backgroundPosition: '-501px 0px'});break;
-                        case 4:toggle=3;$(".birds.on").css({backgroundPosition: '-668px 0px'});break;
-                        case 5:toggle=4;$(".birds.on").css({backgroundPosition: '-835px 0px'});break;
-                        case 6:toggle=5;$(".birds.on").css({backgroundPosition: '-1002px 0px'});break;
-                        case 7:toggle=6;$(".birds.on").css({backgroundPosition: '-1169px 0px'});break;
-                        default:toggle=7;$(".birds.on").css({backgroundPosition: '0px 0px'});break; 
-                    }
-                    recursion(toggle);
-                },80);
-            }
-            recursion(0);   
-        });
-    </script>
+    <!-- script:src -->
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="{{ site.baseurl }}/assets/js/scrolltop.js"></script>
 </head>
 <body>
     <div class="wrapper">
         <div class="header oh">
-            <!-- title -->
             <div class="header-title fl">
-                <div class="title-qian"></div>
-                <div class="title-duan"></div>
-                <div class="title-hua"></div>
-                <div class="title-yuan"></div>
+                <div class="header-title-qian"></div>
+                <div class="header-title-duan"></div>
+                <div class="header-title-hua"></div>
+                <div class="header-title-yuan"></div>
             </div>
 
-            <!-- friend link -->
             <div class="friend-link fl oh">
-                <div>这</div>
-                <div>里</div>
-                <div>是</div>
-                <div>干</div>
-                <div>什</div>
-                <div>么</div>
-                <div>的</div>
-                <div>呢</div>
-                <div>？</div>
-                <div>一</div>
-                <div>个</div>
-                <div>友</div>
-                <div>情</div>
-                <div>链</div>
-                <div>接</div>
-                <div>？</div>
-                <div>一</div>
-                <div>则</div>
-                <div>笑</div>
-                <div>话</div>
-                <div>？</div>
-                <div>抑</div>
-                <div>或</div>
-                <div>一</div>
-                <div>些</div>
-                <div>生</div>
-                <div>活</div>
-                <div>中</div>
-                <div>的</div>
-                <div>吐</div>
-                <div>槽</div>
-                <div>？</div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
+                
             </div>
         </div>
+
         <div class="split-line"></div>
-        
+
         {{ content }}
-        
+
         <div class="split-line"></div>
+
         <div class="footer">
-            前端花园 &copy; 2012. Powered By Github Pages and Jekyll.
+            前端花园 &copy; 2012
         </div>
     </div>
 
-    <div class="birds-path">
-        <div class="birds-position">
-            <div class="birds"></div>
-        </div>
+    <div style="position:fixed; right: 10px; bottom: 10px;">
+        <object>
+            <embed src="http://www.xiami.com/widget/8358_21065,2896417,375974,388455,34727,2120611,49957,2122179,81307,381755,395648,2052784,3368868,1483962,2136083,1298289,376353,1769070538,3596898,3567313,2067242,6952,1769229843,1770266788,2122177,3662673,3342118,1769530668,_150_280_334455_334455_0/multiPlayer.swf" type="application/x-shockwave-flash" width="150" height="250" wmode="opaque"></embed>
+        </object>
     </div>
+
+    {% include category.html %}
+   
+    {% include birds.html %}
+
+    {% unless page.title == "search" %}
+        {% include search-index.html %}
+    {% endunless %}
     
 </body>
-</html> 
+</html>

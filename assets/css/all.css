@@ -1,0 +1,405 @@
+---
+layout: nil
+---
+html,body,div,span,p,a{
+    margin: 0;
+    padding: 0;
+}
+a {
+    color: #336699;
+    text-decoration: none;
+}
+a:hover {
+    color: #996633;
+    text-decoration: underline;
+}
+a img {
+    outline: none;
+    border: none;
+}
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.oh {
+    overflow: hidden;
+}
+
+html {
+    font-size: 12px;
+    font-family: Tahoma;
+    background-color: #345;
+}
+
+body {
+    min-width: 1000px;
+}
+
+h2 {
+    font-family: 微软雅黑,Tahoma;
+    font-size: 16px;
+    font-weight: bold;  
+    margin: 5px 0px;
+}
+
+.wrapper {
+    width: 960px;
+    margin: 0 auto;
+    border-left: 5px solid #ccc;
+    border-right: 5px solid #ccc;
+    background-color: #efefef;
+    height: 100%;
+}
+
+.header {
+    position: relative;
+}
+
+.header-title {
+    width: 150px;
+    height: 150px;
+    cursor: pointer;
+}
+
+.header-title div {
+    position: absolute;
+}
+
+.header-title-qian {
+    left: 72px;
+    top: 10px;
+    width: 54px;
+    height: 61px;
+    background: url({{ site.baseurl }}/assets/image/sprites.png) -10px -62px no-repeat;
+}
+
+.header-title-duan {
+    left: 70px;
+    top: 80px;
+    width: 52px;
+    height: 77px;
+    background: url({{ site.baseurl }}/assets/image/sprites.png) -76px -62px no-repeat;
+}
+
+.header-title-hua {
+    left: 5px;
+    top: 10px;
+    width: 59px;
+    height: 65px;
+    background: url({{ site.baseurl }}/assets/image/sprites.png) -137px -62px no-repeat;
+}
+
+.header-title-yuan {
+    left: 10px;
+    top: 80px;
+    width: 45px;
+    height: 72px;
+    background: url({{ site.baseurl }}/assets/image/sprites.png) -203px -62px no-repeat;
+}
+
+.friend-link { 
+    margin-left: 40px;
+    margin-top: 10px;
+    width: 760px;
+    height: 160px;
+}
+
+.friend-link div {
+    color: #345;
+    border: 1px solid #ccc;
+    margin: 1px;
+    width: 48px;
+    height: 48px;
+    line-height: 48px;
+    text-align: center;
+    font-size: 20px;
+    font-family: 华文新魏;
+    float: left;
+}
+
+.content-block {
+    position: relative;
+    width: 260px;
+    margin: 20px 10px;
+    padding: 20px 10px;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 10px #666;
+}
+
+.content-block .content-more {
+    position: absolute;
+    right: 5px;
+    bottom: 10px;
+}
+
+.split-line {
+    border-top: 1px dashed #003399;
+    margin-top: 20px;
+    width: 960px;
+}
+
+.content-header {
+    height: 30px;
+    line-height: 30px;
+}
+
+.content-header .img-latest-posts {
+    float: left;
+    margin-right: 10px;
+    display: block;
+    width: 24px;
+    height: 24px;
+    background: url({{ site.baseurl }}/assets/image/sprites.png) -271px -93px no-repeat;
+    font-size:13px;
+}
+
+.content-header .img-latest-comments {
+    float: left;
+    margin-right: 10px;
+    display: block;
+    width: 24px;
+    height: 24px;
+    background: url({{ site.baseurl }}/assets/image/sprites.png) -298px -66px no-repeat;
+}
+
+.content-header .img-top-posts {
+    float: left;
+    margin-right: 10px;
+    display: block;
+    width: 24px;
+    height: 24px;
+    background: url({{ site.baseurl }}/assets/image/sprites.png) -298px -90px no-repeat;
+    font-size: 13px;
+}
+
+.content-list ul {
+    margin: 0;
+    padding: 0px;
+    list-style: none;
+    margin-left: 20px;
+}
+
+.content-list ul li {
+    text-decoration: none;
+    height: 38px;
+    line-height: 38px;
+    overflow: hidden;
+}
+
+.comment-list {
+    font-size: 12px;
+}
+
+.content-list ul li span {
+    float: right;
+}
+
+.footer {
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+    color: gray;
+}
+
+.birds-path, .birds-path-on {
+    position: absolute;
+    left: 0px;
+    top: 10px;
+    float: left;
+    height: 61px;
+    margin: 100px 0 0;
+    overflow: hidden;
+    width: 100%;
+}
+.birds-position {
+    margin: 0 0 0 -250px;
+}
+.birds, .birds-on {
+    background: url({{ site.baseurl }}/assets/image/sprites.png) no-repeat scroll 0 0 transparent;
+    float: left;
+    height: 61px;
+    width: 167px;
+}
+
+.category {
+    position: fixed;
+    left: 10px;
+    top: 20px;
+    height: 310px;
+    width: 150px;
+    border: 1px solid #cfcfcf;
+    border-radius: 10px;
+    z-index: 101;
+}
+
+.category-title {
+    font-family: 微软雅黑;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 10px;
+    height: 38px;
+    line-height: 38px;
+    color: #fff;
+}
+
+.category-list ul {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+.category-list ul li {
+    height: 38px;
+    line-height: 38px;
+    text-align: center;
+    border-top: 1px dashed #ccc;
+}
+
+.category-list ul li a{
+    color: #fcfcfc;
+    font-size: 13px;
+}
+
+.article {
+    position: relative;
+    padding: 10px;
+    min-height: 390px;
+}
+
+.article-title {
+    text-align: center;
+    font-size: 13px;
+    font-family: 微软雅黑;
+}
+
+.article-content {
+    min-height: 100px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.article-content p {
+    line-height: 30px;
+    letter-spacing: 1px;
+    text-indent: 2em;
+    font-size: 14px;
+    font-family: Tahoma;
+}
+
+.article-foot {
+    position: relative;
+    padding-top: 10px;
+    padding-bottom: 30px;
+    text-align: center;
+}
+
+.article-foot a {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.returnToMain {
+    position: absolute;
+    display: block;
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    padding-left: 10px;
+    background: url({{ site.baseurl }}/assets/image/sprites.png) -345px -63px no-repeat;
+    font-family: 微软雅黑;
+    font-size: 13px;
+    border: 1px solid #999;
+    color: #345;
+    cursor: pointer;
+    right: 10px;
+    bottom: 0;
+    text-decoration: none;
+    box-shadow: 2px 2px 10px #333;
+}
+
+.returnToMain:hover {
+    color: #356;
+}
+
+.bread {
+    padding-left: 10px;
+    padding-top: 10px;
+    font-size: 13px;
+}
+
+.post-item {
+    text-decoration: none;
+    height: 38px;
+    line-height: 38px;
+    padding-left: 20px;
+}
+
+#searchBox {
+    position: fixed;
+    left: 10px;
+    top: 350px;
+    width: 153px;
+}
+#searchTerm {
+    height: 22px;
+    line-height: 22px;
+    width: 153px;
+    padding-left: 5px;
+}
+#searchImg {
+    z-index: 10;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    background: url({{ site.baseurl }}/assets/image/sprites.png) -358px -95px no-repeat;
+}
+.gray {
+    color: #666;
+}
+
+#searchForm {
+    padding: 10px;
+}
+
+#s {
+    height: 28px;
+    line-height: 28px;
+    width: 300px;
+}
+
+#submitButton {
+    background: transparent;
+    width: 60px;
+    height: 32px;
+    border: 1px solid #345;
+}
+
+#searchInContainer {
+    padding-top: 10px;
+}
+
+fieldset {
+    border: none;
+}
+
+#resultDiv {
+    padding: 10px;
+}
+
+.webResult {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#more {
+    margin: 0 auto;
+    width: 30px;
+    height: 32px;
+    cursor: pointer;
+    background: url({{ site.baseurl }}/assets/image/sprites.png) -326px -90px no-repeat;
+}

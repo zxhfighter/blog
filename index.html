@@ -1,59 +1,92 @@
 ---
-layout: default
+layout: default 
 ---
-
 <div class="content">
     <div class="main-content oh">
         <div class="content-block fl">
             <div class="content-header">
-                <h2><span class="img-latest-posts"></span>最新文章</h2>
+                <h2>
+                    <span class="img-latest-posts"></span>
+                    最新文章
+                </h2>
             </div>
             <div class="content-list">
                 <ul>
-                    {% for post in site.posts %}
-                        <li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a><span>{{ post.date | date: "%Y-%m-%d" }}</span></li>
-                    {% endfor %}
+                {% for article in site.posts limit:7 %}
+                    <li>
+                        <a href="{{ site.baseurl }}{{ article.url }}">{{ article.title }}</a>
+                        <span>{{ article.date | date: "%Y-%m-%d" }}</span>
+                    </li>
+                {% endfor %}
                 </ul>
             </div>
             <div class="content-more">
-                <a href="/">更多>></a>
+                <a href="{{ site.baseurl }}/archive/index.html">更多>></a>
             </div>
         </div>
-        
+
         <div class="content-block fl">
             <div class="content-header">
-                <h2><span class="img-latest-comments"></span>最新评论</h2>
+                <h2>
+                    <span class="img-latest-comments"></span>
+                    最新评论
+                </h2>
             </div>
-            <div class="content-list">
-                <ul>
-                    <li><a href="/">夜读CoffeeScript</a></li>
-                    <li><a href="/">JavaScript设计模式aaaaaasdfda</a></li>
-                    <li><a href="/">深入浅出GOF</a></li>
-                    <li><a href="/">庖丁解牛</a></li>
-                    <li><a href="/">时代变迁</a></li>
-                </ul>
+            <div class="comment-list">
+                <ul class="ds-recent-comments" data-num-items="4" data-show-avatars="1" data-show-time="1" data-show-title="1" data-excerpt-length="10"></ul>
+                <!--多说js加载开始，一个页面只需要加载一次 -->
+                <script type="text/javascript">
+                var duoshuoQuery = {short_name:"zxhfighter"};
+                (function() {
+                    var ds = document.createElement('script');
+                    ds.type = 'text/javascript';ds.async = true;
+                    ds.src = 'http://static.duoshuo.com/embed.js';
+                    ds.charset = 'UTF-8';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+                })();
+                </script>
+                <!--多说js加载结束，一个页面只需要加载一次 -->
             </div>
-             <div class="content-more">
+        <div class="content-more">
                 <a href="/">更多>></a>
             </div>
         </div>
 
         <div class="content-block fl">
             <div class="content-header">
-                <h2><span class="img-top-posts"></span>阅读排行榜</h2>
+                <h2>
+                    <span class="img-top-posts"></span>
+                    一周动态
+                </h2>
             </div>
             <div class="content-list">
                 <ul>
-                    <li><a href="/">夜读CoffeeScript</a></li>
-                    <li><a href="/">JavaScript设计模式aaaaaasdfdsaaaaaaa</a></li>
-                    <li><a href="/">深入浅出GOF</a></li>
-                    <li><a href="/">庖丁解牛</a></li>
-                    <li><a href="/">时代变迁</a></li>
+                {% for article in site.posts limit:7 %}
+                    <li>
+                        <a href="{{ site.baseurl }}{{ article.url }}">{{ article.title }}</a>
+                        <span>{{ article.date | date: "%Y-%m-%d" }}</span>
+                    </li>
+                {% endfor %}
                 </ul>
             </div>
             <div class="content-more">
-                <a href="/">更多>></a>
+                <a href="{{ site.baseurl }}/archive/index.html">更多>></a>
             </div>
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    // 调整高度
+    $(function(){
+        var $wrapper = $(".wrapper"),
+            $header = $(".header"),
+            $split = $(".split-line"),
+            $content = $(".content"),
+            $foot = $(".footer");
+
+        $wrapper.height($(window).height());
+        var height = $wrapper.height() - $header.height() - 21*2 - $foot.height();
+        $content.height(height);
+    });
+</script>

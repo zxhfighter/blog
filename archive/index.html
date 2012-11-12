@@ -1,0 +1,15 @@
+---
+layout: default
+---
+<div class="article">
+    <h2>
+        全部文章
+    </h2>
+    <ul>
+        {% for post in site.posts %}
+        <li class="post-item">{{ post.date | date: "%Y-%m-%d" }} >> <a href="{{ site.baseurl }}{{ post.url }}"> {{ post.title }} </a></li>
+        {% endfor %}
+    </ul>
+
+    <a href="{{ site.baseurl }}/" class="returnToMain">返回首页</a>
+</div>

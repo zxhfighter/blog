@@ -1,0 +1,56 @@
+<div id="searchBox">
+    <input id="searchTerm" type="text" class="searchTerm gray" title="站内搜索..." value="站内搜索..."/>
+    <a id="searchImg" href="javascript:void(0)">
+        <img src="{{ site.baseurl }}/assets/image/search_16.png" alt="" class="searchImg" />
+    </a>
+</div>
+
+<script type="text/javascript">
+    jQuery(document).ready(function($) {
+        var $txt = $('#searchTerm'),
+            $img = $('#searchImg');
+
+        $txt.bind('focus', function(){
+            var cache = $(this).attr('title'),
+                value = $(this).val();
+
+            if( value == cache ) {
+                $(this).val('').removeClass('gray');
+            }
+        });
+
+        $txt.bind('blur', function(){
+            var cache = $(this).attr('title'),
+                value = $(this).val();
+
+            if( value == '' ) {
+                $(this).val(cache).addClass('gray');
+            }
+        });
+
+        // 绑定文本改变事件
+        $txt.bind('change', function(){
+            var cache = $(this).attr('title');
+
+            if( $(this).val() != cache ) {
+                $(this).removeClass('gray');
+            } else if( $(this).val() == '' ) {
+                $(this).val(cache).addClass('gray');
+            }
+        }).change();
+        
+        $img.bind('click', function(){
+            var searchTerm = $txt.val();
+            if( searchTerm.length ) {
+                window.location.href = "{{ site.baseurl }}" + "/search/site-search.html#" + searchTerm;
+            }
+            return false;
+        });
+
+        var hash = window.location.hash;
+        if( hash.indexOf('#') != -1 ) {
+            hash = hash.slice(1);
+            $txt.val(hash);
+        }
+    });
+</script>

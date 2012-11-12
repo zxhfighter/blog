@@ -1,1 +1,5 @@
-baseurl: /blog
+meta:
+    title: "前端花园"
+    author: "zxhfighter"
+baseurl: /localblog
+markdown: kramdown

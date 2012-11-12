@@ -1,0 +1,74 @@
+<div class="birds-path">
+    <div class="birds-position">
+        <div class="birds"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    // make birds fly
+    $(function() {
+        var $path = $(".birds-path"),
+            $birds = $(".birds");
+        $path.addClass("on");
+        $birds.addClass("on");
+
+        var pause = 0;
+        function birds() {
+            var element = ".birds.on",
+                interval = 27000,
+                left = 0,
+                away = 150;
+
+            if( pause === 0 ) {
+                pause = 1;
+                $(element).css("margin-left", left + "px").animate({marginLeft: away + "%"}, interval, 'linear', function() {
+                    $(element).css("margin-left", left + "px");
+                    pause = 0;
+                    birds();
+                });
+            }
+        }
+
+        birds();
+
+        //BIRDS SPRITE ANIMATION
+        var recursion = function(toggle) 
+        {
+            setTimeout(function() 
+            {
+                switch(toggle) 
+                {
+                    case 1:toggle=0;$(".birds.on").css({backgroundPosition: '-167px 0px'});break;
+                    case 2:toggle=1;$(".birds.on").css({backgroundPosition: '-334px 0px'});break;
+                    case 3:toggle=2;$(".birds.on").css({backgroundPosition: '-501px 0px'});break;
+                    case 4:toggle=3;$(".birds.on").css({backgroundPosition: '-668px 0px'});break;
+                    case 5:toggle=4;$(".birds.on").css({backgroundPosition: '-835px 0px'});break;
+                    case 6:toggle=5;$(".birds.on").css({backgroundPosition: '-1002px 0px'});break;
+                    case 7:toggle=6;$(".birds.on").css({backgroundPosition: '-1169px 0px'});break;
+                    default:toggle=7;$(".birds.on").css({backgroundPosition: '0px 0px'});break; 
+                }
+                recursion(toggle);
+            },80);
+        }
+        recursion(0);
+    });
+    
+    $(function() {
+        //var str = "你所浪费的今天，是昨天死去的人奢望的明天；你所厌恶的现在，是未来的你回不去的曾经。";
+
+        var str = "我已经飞的太远太远，迷失了回去的路，也许，有时，停下思考下前进的方向，比飞更为重要。"
+        function makeFriendLink() {
+            var $friendLink = $(".friend-link");
+            var arr = str.split("");
+            for(var i=0, len=42; i<len; i++) {
+                $friendLink.append("<div>" + (arr[i] || "") + "</div>");
+            }
+        }
+
+        function randomColor() {
+            return '#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6);
+        }
+
+        makeFriendLink();
+    });
+</script>
