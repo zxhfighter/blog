@@ -1,0 +1,20 @@
+<script type="text/javascript">
+    $(function() {
+        $(window).bind('resize', function(){
+            var category = $('#category'),
+                mp3Box = $('#mp3Box'),
+                searchBox = $('#searchBox'),
+                width = $(this).width();
+
+            if( width < 1280 ) {
+                category.hide();
+                mp3Box.hide();
+                searchBox.hide();
+            } else {
+                category.show();
+                mp3Box.show();
+                searchBox.show();
+            }
+        }).resize();
+    });
+</script>

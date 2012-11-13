@@ -52,7 +52,7 @@
         </div>
     </div>
 
-    <div style="position:fixed; right: 10px; bottom: 10px;">
+    <div id="mp3Box" style="position:fixed; right: 10px; bottom: 10px;">
         <object>
             <embed src="http://www.xiami.com/widget/8358_21065,2896417,375974,388455,34727,2120611,49957,2122179,81307,381755,395648,2052784,3368868,1483962,2136083,1298289,376353,1769070538,3596898,3567313,2067242,6952,1769229843,1770266788,2122177,3662673,3342118,1769530668,_150_280_334455_334455_0/multiPlayer.swf" type="application/x-shockwave-flash" width="150" height="250" wmode="opaque"></embed>
         </object>
@@ -66,5 +66,6 @@
         {% include search-index.html %}
     {% endunless %}
     
+    {% include resizeHandler.html %}
 </body>
 </html>
