@@ -1,0 +1,18 @@
+<script type="text/javascript">
+    $(document).ready(function(){
+        // 选择有图片的段落，设置居中
+        $("p:has(img)").css({
+            "text-align": "center",
+            "padding": "10px"
+        });
+
+        // 设置所有图片居中
+        $("p img").css({
+            "box-shadow": "5px 5px 10px #333",
+            "border-radius": "20px"
+        });
+
+        // 图片打开新窗口
+        $("p a:has(img)").attr("target","_blank");
+    });
+</script>
