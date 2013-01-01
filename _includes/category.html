@@ -1,11 +1,11 @@
-<div id="category" class="category">
+<div id="category" class="category" style="display: none;">
     <div class="category-title">分类目录</div>
     <div class="category-list">
         <ul>
             {% for category in site.categories %}
                     {% case category[0] %}
                         {% when 'javascript' %}
-                            {% assign catName = '编程' %}
+                            {% assign catName = '前端' %}
                         {% when 'translate' %}
                             {% assign catName = '翻译' %}
                         {% when 'photo' %}
