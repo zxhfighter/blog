@@ -3,7 +3,7 @@ layout: default
 comment: true
 ---
 <div class="bread">
-    <a href="{{ site.baseurl }}/archive/category.html#all">全部分类</a>>>
+    <a href="{{ site.baseurl }}/archive/category.html#all">全部分类</a>&gt;&gt;
     {% case page.categories[0] %}
         {% when 'javascript' %}
             {% assign catName = '编程' %}
@@ -61,3 +61,9 @@ comment: true
         <!-- Duoshuo Comment END -->
     </div>
 </div>
+
+<script>
+    $(function (){
+        prettyPrint();
+    });
+</script>

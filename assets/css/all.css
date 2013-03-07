@@ -1,10 +1,58 @@
 ---
 layout: nil
 ---
-html,body,div,span,p,a{
+/* --Eric Meyer's reset.css v1.0 | 20080212-- */
+html, body, div, span,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, cite, code,
+del, em, img, ins, kbd,
+strong, sub, sup,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
     margin: 0;
     padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
 }
+body {
+    line-height: 1;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+
+/* remember to highlight inserts somehow! */
+ins {
+    text-decoration: none;
+}
+del {
+    text-decoration: line-through;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+article, aside, figure, footer, header, hgroup,  menu, nav, section {
+    display: block;
+}
+
+/* link */
 a {
     color: #336699;
     text-decoration: none;
@@ -14,9 +62,10 @@ a:hover {
     text-decoration: underline;
 }
 a img {
-    outline: none;
     border: none;
 }
+
+/* common class */
 .fl {
     float: left;
 }
@@ -28,22 +77,23 @@ a img {
 .oh {
     overflow: hidden;
 }
+.hide {
+    display: none;
+}
+.show {
+    display: block;
+}
 
-html {
+body {
+    min-width: 1000px;
     font-size: 12px;
     font-family: Tahoma;
     background-color: #345;
 }
 
-body {
-    min-width: 1000px;
-}
-
-h2 {
-    font-family: 微软雅黑,Tahoma;
-    font-size: 16px;
-    font-weight: bold;  
-    margin: 5px 0px;
+/* 隐藏百度统计logo */
+body > a {
+    display: none;
 }
 
 .wrapper {
@@ -109,8 +159,7 @@ h2 {
 }
 
 .friend-link div {
-    color: #345;
-    border: 1px solid #ccc;
+    border: 1px solid #FFF;
     margin: 1px;
     width: 48px;
     height: 48px;
@@ -119,6 +168,8 @@ h2 {
     font-size: 20px;
     font-family: 华文新魏;
     float: left;
+    box-shadow: 5px 5px 5px #CCC;
+    color: #543;
 }
 
 .content-block {
@@ -137,7 +188,7 @@ h2 {
 }
 
 .split-line {
-    border-top: 1px dashed #003399;
+    border-top: 1px solid #ccc;
     margin-top: 20px;
     width: 960px;
 }
@@ -287,14 +338,6 @@ h2 {
     padding-right: 20px;
 }
 
-.article-content p {
-    line-height: 30px;
-    letter-spacing: 1px;
-    text-indent: 2em;
-    font-size: 14px;
-    font-family: Tahoma;
-}
-
 .article-foot {
     position: relative;
     padding-top: 10px;
@@ -409,4 +452,88 @@ fieldset {
     height: 32px;
     cursor: pointer;
     background: url({{ site.baseurl }}/assets/image/sprites.png) -326px -90px no-repeat;
+}
+
+/* 分类目录样式 */
+.category-list-item {
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border-top: 1px dashed #eee;
+}
+
+.category-list-item a {
+    display: block;
+    width: 100%;
+    color: #eee;
+}
+
+.category-list-item a:hover {
+    background-color: #0F192A;
+    color: #FFF;
+}
+
+/* markdown 样式 */
+.article-content > h1,
+.article-content > h2,
+.article-content > h3,
+.article-content > table,
+.article-content > ul,
+.article-content > ol,
+.article-content > p,
+.article-content > blockquote
+ {
+    font-family: Arial, sans-serif;
+    color: #333;
+    color: #345;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+/* 标题 */
+.article-content > h1 {
+    font-size: 20px;
+    font-weight: 900;
+}
+
+.article-content > h2 {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.article-content > h3 {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+/* 段落 */
+.article-content p {
+    line-height: 30px;
+    text-indent: 2em;
+    font-size: 14px;
+    letter-spacing: 1px;
+    font-family: Tahoma;
+}
+
+/* 列表 */
+.article-content > ul,
+.article-content > ol {
+    list-style: none;
+}
+
+.article-content > ul > li,
+.article-content > ol > li {
+    background: url({{ site.baseurl }}/assets/image/Star.png) no-repeat 0 10px;
+    padding-left: 2em;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: 2em;
+
+    font-size: 14px;
+    letter-spacing: 1px;
+    font-family: Tahoma;
+}
+
+.article-content pre ol {
+    list-style: decimal;
 }

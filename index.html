@@ -33,7 +33,7 @@ layout: default
                 </h2>
             </div>
             <div class="comment-list">
-                <ul class="ds-recent-comments" data-num-items="4" data-show-avatars="1" data-show-time="1" data-show-title="1" data-excerpt-length="10"></ul>
+                <ul class="ds-recent-comments" data-num-items="4" data-show-avatars="1" data-show-time="1" data-show-title="1" data-excerpt-length="15"></ul>
                 <!--多说js加载开始，一个页面只需要加载一次 -->
                 <script type="text/javascript">
                 var duoshuoQuery = {short_name:"zxhfighter"};
@@ -47,7 +47,7 @@ layout: default
                 </script>
                 <!--多说js加载结束，一个页面只需要加载一次 -->
             </div>
-        <div class="content-more">
+            <div class="content-more">
                 <a href="/">更多>></a>
             </div>
         </div>
@@ -56,17 +56,18 @@ layout: default
             <div class="content-header">
                 <h2>
                     <span class="img-top-posts"></span>
-                    一周动态
+                    好文推荐
                 </h2>
             </div>
             <div class="content-list">
                 <ul>
-                {% for article in site.posts limit:7 %}
-                    <li>
-                        <a href="{{ site.baseurl }}{{ article.url }}">{{ article.title }}</a>
-                        <span>{{ article.date | date: "%Y-%m-%d" }}</span>
-                    </li>
-                {% endfor %}
+                    <li><a href="http://net.tutsplus.com/" target="_blank">http://net.tutsplus.com/</a><span>2013-3-4</span></li>
+                    <li><a href="http://tympanus.net/codrops/" target="_blank">http://tympanus.net/codrops/</a><span>2013-3-4</span></li>
+                    <li><a href="http://www.smashingmagazine.com/" target="_blank">http://www.smashingmagazine.com/</a><span>2013-3-4</span></li>
+                    <li><a href="http://thecodeplayer.com/" target="_blank">http://thecodeplayer.com/</a><span>2013-3-4</span></li>
+                    <li><a href="http://jsfiddle.net/" target="_blank">在线脚本运行器jsfiddle</a><span>2013-3-4</span></li>
+                    <li><a href="http://jsbin.com/" target="_blank">在线脚本运行器jsbin</a><span>2013-3-4</span></li>
+                    <li><a href="http://addyosmani.com/writing-modular-js/" target="_blank">编写模块化JS</a><span>2013-3-4</span></li>
                 </ul>
             </div>
             <div class="content-more">
@@ -88,5 +89,29 @@ layout: default
         $wrapper.height($(window).height());
         var height = $wrapper.height() - $header.height() - 21*2 - $foot.height();
         $content.height(height);
+    });
+
+    // 调整标题字数
+    $(function () {
+        function subByte (word, len, opt_tail) {
+            var length = String(word).replace(/[^\x00-\xff]/g, "ci").length;
+            opt_tail = (opt_tail === undefined) ? '...' : opt_tail;
+            if (len < 0 || length <= len){
+                return word; 
+            }
+
+            word = word.substr(0, len)
+                .replace(/([^\x00-\xff])/g,"\x241 ")//双字节字符替换成两个
+                .substr(0, len)//截取长度
+                .replace(/[^\x00-\xff]$/,"")//去掉临界双字节字符
+                .replace(/([^\x00-\xff]) /g,"\x241");//还原
+            word += opt_tail;
+            return word;
+        }
+
+        $('.content-list li a').each(function(i, ele) {
+            ele.title = ele.innerText;
+            ele.innerHTML = subByte(ele.innerText, 26);
+        });
     });
 </script>

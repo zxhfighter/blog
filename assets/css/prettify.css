@@ -1,0 +1,44 @@
+pre.prettyprint {
+    padding: 8px 0 12px 40px;
+    border-left: 10px solid #566D82;
+    margin-bottom: 1.25em;
+    background: #0F192A;
+    line-height: 1.5em;
+    *padding-left: 20px;
+}
+
+pre, code {
+    font-family: Tohama, Consolas, Inconsolata, 'Bitstream Vera Sans Mono', Menlo, Monaco, 'Andale Mono', 'Courier New', monospace;
+}
+
+pre code {
+    font-size: 1em;
+    line-height: 1.4em;
+    padding: 0;
+    margin-top: 3px;
+    margin-bottom: 1px;
+    background: #0F192A;
+}
+
+code {
+    padding: 3px 4px 1px;
+    font-size: 0.875em;
+}
+
+.str { color: #1DC116; }
+.kwd { color: #E83737; }
+.com { color: #428BDD; }
+.typ { color: #FFAA3E; }
+.lit { color: #D1EDFF; }
+.pun { color: #D1EDFF; }
+.tag { color: #008; }
+.atn { color: #606; }
+.atv { color: #080; }
+.dec { color: #606; }
+.pln { color: #FFAA3E; }
+
+ol.linenums {
+    margin-top: 0;
+    margin-bottom: 0;
+    color: #81817F;
+}

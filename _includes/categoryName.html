@@ -1,0 +1,18 @@
+{% case category[0] %}
+    {% when 'javascript' %}
+        {% assign catName = '前端' %}
+    {% when 'translate' %}
+        {% assign catName = '翻译' %}
+    {% when 'photo' %}
+        {% assign catName = '摄影' %}
+    {% when 'book' %}
+        {% assign catName = '读书' %}
+    {% when 'essay' %}
+        {% assign catName = '随想' %}
+    {% when 'business' %}
+        {% assign catName = '业界' %}
+    {% when 'other' %}
+        {% assign catName = '其他' %}
+    {% else %}
+        {% assign catName = category[0] %}
+{% endcase %}
