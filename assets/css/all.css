@@ -537,3 +537,14 @@ fieldset {
 .article-content pre ol {
     list-style: decimal;
 }
+
+.article-content > ul ul {
+    list-style-type: circle;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+.article-content > ul ul li {
+    line-height: 20px;
+    padding: 5px 3px;
+}

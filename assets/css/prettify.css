@@ -4,11 +4,11 @@ pre.prettyprint {
     margin-bottom: 1.25em;
     background: #0F192A;
     line-height: 1.5em;
-    *padding-left: 20px;
+    *padding-left: 10px;
 }
 
 pre, code {
-    font-family: Tohama, Consolas, Inconsolata, 'Bitstream Vera Sans Mono', Menlo, Monaco, 'Andale Mono', 'Courier New', monospace;
+    font-family: Consolas, Inconsolata, 'Bitstream Vera Sans Mono', Menlo, Monaco, 'Andale Mono', 'Courier New', monospace;
 }
 
 pre code {
