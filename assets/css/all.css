@@ -525,10 +525,10 @@ fieldset {
 .article-content > ol > li {
     background: url({{ site.baseurl }}/assets/image/Star.png) no-repeat 0 10px;
     padding-left: 2em;
-    padding-top: 10px;
+    padding-top: 4px;
     padding-bottom: 10px;
     margin-left: 2em;
-
+    line-height: 24px;
     font-size: 14px;
     letter-spacing: 1px;
     font-family: Tahoma;
