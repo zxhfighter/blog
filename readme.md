@@ -1,5 +1,8 @@
+请访问 http://zxhfighter.github.io/blog/
+
 本博客的结构如下：
 
+```shell
 /
 --_includes       公用页面片段
 --_layouts        通用页面布局
@@ -16,3 +19,5 @@
 --readme.md       说明
 --robots.txt      搜索引擎配置
 --crossdomain.xml 跨域设置
+```
+
